@@ -1,0 +1,117 @@
+/* =========================================================
+   ANZEN 安全 — home.css (index.html only)
+   CSS by: Pranjal
+   Hero, quick search, stats, Anzen Promise, philosophy,
+   clubhouse expanding gallery, call-to-action
+   ========================================================= */
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative; min-height: 92vh; display: flex; align-items: center; padding: 90px 0 70px;
+  background:
+    linear-gradient(100deg, rgba(14,19,29,.96) 25%, rgba(14,19,29,.55) 70%, rgba(14,19,29,.35)),
+    url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1800&q=70") center / cover,
+    linear-gradient(135deg, #1d2638, #3b3324);
+}
+.hero::after { /* soft gold glow, like sunlight through leaves */
+  content: ""; position: absolute; width: 520px; height: 520px; right: 8%; top: 10%;
+  background: radial-gradient(circle, rgba(212,168,90,.18), transparent 65%); pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; }
+.pill {
+  display: inline-block; padding: 8px 18px; border: 1px solid var(--line); border-radius: 999px;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-2);
+  background: rgba(14,19,29,.5); margin-bottom: 26px;
+}
+.hero-title { font-family: var(--serif); font-weight: 500; font-size: clamp(42px, 7vw, 86px); line-height: 1.02; max-width: 900px; }
+.hero-lead { margin: 22px 0 30px; max-width: 600px; color: #c9ced6; font-size: 17px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* Quick search bar */
+.quick-search {
+  margin-top: 56px; background: var(--washi); border-radius: 16px; padding: 18px;
+  display: grid; grid-template-columns: repeat(4, 1fr) auto; gap: 6px; box-shadow: var(--shadow);
+}
+.qs-field { display: flex; flex-direction: column; gap: 4px; padding: 6px 16px; border-right: 1px solid #e5dccb; }
+.qs-field label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #9a8f7b; font-weight: 600; }
+.qs-field select { border: none; background: transparent; font-family: var(--sans); font-size: 15px; color: var(--text); padding: 4px 0; cursor: pointer; }
+.qs-field select:focus { outline: 2px solid var(--gold); border-radius: 4px; }
+.qs-btn { align-self: stretch; justify-content: center; }
+
+/* ---------- Stats strip ---------- */
+.stats { padding: 56px 0; background: linear-gradient(180deg, var(--navy), var(--ink)); border-bottom: 1px solid var(--line); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+.stat { border-left: 1px solid var(--gold); padding-left: 22px; }
+.stat h3 { font-family: var(--serif); font-size: 40px; font-weight: 500; line-height: 1.1; }
+.stat-title { font-weight: 600; color: var(--gold-2); margin: 4px 0; }
+.stat p:last-child { font-size: 13px; color: #9ca3af; }
+
+/* ---------- Anzen Promise ---------- */
+.promise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 42px; }
+.promise-card {
+  background: #fff; border: 1px solid #ece4d4; border-radius: var(--radius); padding: 28px;
+  transition: 0.3s; position: relative; overflow: hidden;
+}
+.promise-card::after { content: ""; position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--gold); transition: width .4s; }
+.promise-card:hover { transform: translateY(-5px); box-shadow: 0 16px 34px rgba(0,0,0,.08); }
+.promise-card:hover::after { width: 100%; }
+.kanji {
+  display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%;
+  background: var(--navy); color: var(--gold); font-family: "Noto Serif JP", serif; font-size: 24px; margin-bottom: 16px;
+}
+.promise-card h3 { font-family: var(--serif); font-size: 24px; font-weight: 600; margin-bottom: 6px; color: var(--ink); }
+.promise-card p { color: #5d6370; font-size: 14px; }
+
+/* ---------- Philosophy ---------- */
+.philo-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: center; }
+.philo-img { position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.philo-img img { width: 100%; height: 480px; object-fit: cover; }
+.philo-tag {
+  position: absolute; top: 24px; right: 24px; background: var(--navy); color: var(--gold-2); text-align: center;
+  padding: 14px 22px; border-radius: 8px; font-family: "Noto Serif JP", serif; font-size: 22px; line-height: 1.3;
+}
+.philo-tag span { font-family: var(--sans); font-size: 10px; letter-spacing: 3px; color: var(--cream); }
+.philo-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 26px 0; }
+.philo-card { border: 1px solid var(--line); border-radius: 12px; padding: 18px; background: rgba(255,255,255,.03); }
+.philo-card h4 { font-family: var(--serif); font-size: 20px; color: var(--gold-2); }
+.philo-card h4 span { font-size: 15px; color: #aab0ba; font-style: italic; }
+.philo-card p { font-size: 13px; color: #b5bac3; margin-top: 6px; }
+
+/* ---------- Featured listings header ---------- */
+.section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 36px; }
+.loading { color: var(--muted); }
+
+/* ---------- Clubhouse expanding gallery (pure CSS: flex 1 → flex 3.6 on hover) ---------- */
+.flex-gallery { display: flex; gap: 12px; height: 440px; margin-top: 36px; }
+.panel {
+  flex: 1; position: relative; border-radius: var(--radius); overflow: hidden; cursor: pointer;
+  background: linear-gradient(0deg, rgba(14,19,29,.9), rgba(14,19,29,.05) 60%), var(--img) center / cover, var(--navy-2);
+  transition: flex .6s cubic-bezier(.2,.8,.2,1); display: flex; flex-direction: column; justify-content: flex-end; padding: 22px;
+  outline: none;
+}
+.panel:hover, .panel:focus { flex: 3.6; }
+.panel-num { font-family: var(--serif); font-style: italic; color: var(--gold); font-size: 20px; }
+.panel h3 { font-family: var(--serif); font-size: 26px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* ---------- CTA ---------- */
+.cta { background: linear-gradient(120deg, #2a2418, var(--navy)); border-top: 1px solid var(--line); padding: 60px 0; }
+.cta-inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.cta p { color: #c3c8d0; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .quick-search { grid-template-columns: repeat(2, 1fr); }
+  .qs-field { border-right: none; border-bottom: 1px solid #e5dccb; }
+  .qs-btn { grid-column: 1 / -1; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .promise-grid { grid-template-columns: repeat(2, 1fr); }
+  .philo-grid { grid-template-columns: 1fr; gap: 36px; }
+}
+@media (max-width: 640px) {
+  .hero { min-height: auto; }
+  .quick-search { grid-template-columns: 1fr; }
+  .stats-grid, .promise-grid, .philo-cards { grid-template-columns: 1fr; }
+  .philo-img img { height: 300px; }
+  .flex-gallery { flex-direction: column; height: 620px; }
+  .panel h3 { font-size: 21px; }
+}

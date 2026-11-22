@@ -1,0 +1,103 @@
+/* =========================================================
+   ANZEN 安全 — dashboard.css (dashboard.html only)
+   CSS by: Pranjal
+   Summary cards, CSS-only charts, add/edit form, data tables
+   ========================================================= */
+
+.dash { background: #f3eee3; color: var(--text); }
+.dash-head { background: linear-gradient(135deg, var(--ink), var(--navy)); color: var(--cream); padding: 60px 0 50px; }
+.dash-head-inner { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; }
+.dash-section { padding: 34px 0; }
+.dash-head + .dash-section { padding-top: 0; }
+
+/* ---------- Panels ---------- */
+.panel-card { background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 10px 28px rgba(0,0,0,.06); border: 1px solid #ece4d4; }
+.panel-card h2 { font-family: var(--serif); font-size: 26px; font-weight: 600; color: var(--ink); margin-bottom: 16px; }
+
+/* ---------- KPI cards ---------- */
+.kpi-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-top: -30px; position: relative; }
+.kpi { background: #fff; border-radius: 14px; padding: 18px; box-shadow: 0 12px 30px rgba(0,0,0,.08); border-top: 4px solid var(--gold); }
+.kpi span { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #8a8f99; font-weight: 600; }
+.kpi strong { display: block; font-family: var(--serif); font-size: 34px; color: var(--ink); line-height: 1.2; margin-top: 4px; }
+.kpi small { color: #8a8f99; font-size: 12px; }
+.kpi.k-available { border-color: #4f9a5a; }
+.kpi.k-booked { border-color: #d39b2a; }
+.kpi.k-sold { border-color: #b4413b; }
+.kpi.k-new { border-color: #3b6fb5; }
+
+/* ---------- Charts (pure CSS bars, width set by JavaScript) ---------- */
+.chart-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 22px; }
+.stack-bar { display: flex; height: 26px; border-radius: 999px; overflow: hidden; background: #eee; }
+.stack-bar span { height: 100%; transition: width .6s; }
+.seg-available { background: #4f9a5a; } .seg-booked { background: #d39b2a; } .seg-sold { background: #b4413b; }
+.legend { list-style: none; display: grid; gap: 8px; margin-top: 16px; font-size: 14px; }
+.legend li { display: flex; align-items: center; gap: 10px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.legend b { margin-left: auto; }
+
+.block-bars, .pipeline { display: grid; gap: 12px; }
+.bar-row { display: grid; grid-template-columns: 70px 1fr 34px; align-items: center; gap: 10px; font-size: 13px; }
+.bar-track { background: #f1ebdd; border-radius: 999px; height: 14px; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-2)); border-radius: 999px; transition: width .6s; }
+.pipeline .bar-fill { background: linear-gradient(90deg, var(--navy), #3b6fb5); }
+.bar-row b { text-align: right; }
+
+/* ---------- Add / Edit form + listings table ---------- */
+.manage-grid { display: grid; grid-template-columns: 1fr 1.35fr; gap: 22px; align-items: start; }
+.prop-form .form-grid { gap: 14px; }
+.prop-form .field input, .prop-form .field select, .prop-form .field textarea { padding: 10px 12px; font-size: 14px; }
+.prop-form.editing { outline: 3px solid var(--gold); }
+.form-actions { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+
+.table-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.table-head h2 { margin-bottom: 0; }
+.table-tools { display: flex; gap: 8px; flex-wrap: wrap; }
+.table-tools input, .table-tools select { padding: 9px 12px; border-radius: 8px; border: 1.5px solid #ddd6c8; font-family: var(--sans); font-size: 13px; }
+.table-wrap { overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 640px; }
+.data-table th { text-align: left; padding: 12px 10px; background: var(--navy); color: var(--gold-2); font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; white-space: nowrap; }
+.data-table th:first-child { border-radius: 8px 0 0 8px; }
+.data-table th:last-child { border-radius: 0 8px 8px 0; }
+.data-table td { padding: 12px 10px; border-bottom: 1px solid #f0e9da; vertical-align: middle; }
+.data-table tbody tr:hover { background: #fbf7ee; }
+.data-table tr.flash { animation: flash 1.2s ease; }
+@keyframes flash { from { background: #f8e7bf; } }
+.data-table td:first-child, .data-table td:nth-child(5) { white-space: nowrap; }
+.cell-title { font-weight: 600; color: var(--ink); }
+.cell-sub { color: #8a8f99; font-size: 12px; }
+.empty-row td { text-align: center; color: #8a8f99; padding: 30px; }
+
+/* Status dropdown inside table — colour matches the status */
+.status-select { padding: 6px 8px; border-radius: 999px; border: 1.5px solid #ddd; font-size: 12px; font-weight: 600; cursor: pointer; font-family: var(--sans); }
+.status-select.s-available, .status-select.s-closed { background: #e3f1e4; color: #2f6b38; border-color: #b7dcbc; }
+.status-select.s-booked, .status-select.s-contacted { background: #fff1d6; color: #8a5a00; border-color: #f0d79a; }
+.status-select.s-sold { background: #f6dede; color: #9b2c2c; border-color: #eab5b5; }
+.status-select.s-new { background: #e1ecfb; color: #1f4f8f; border-color: #b4cbee; }
+.status-select.s-visit-done { background: #ece3f8; color: #5b3a8f; border-color: #cdb9ea; }
+
+.row-actions { display: flex; gap: 6px; }
+.icon-btn { border: 1.5px solid #ddd6c8; background: #fff; border-radius: 8px; padding: 6px 10px; cursor: pointer; font-size: 12px; font-family: var(--sans); font-weight: 600; }
+.icon-btn:hover { border-color: var(--gold); }
+.icon-btn.danger:hover, .icon-btn.confirm { border-color: #b4413b; color: #fff; background: #b4413b; }
+
+/* Mini progress for bookings */
+.mini-progress { display: flex; gap: 4px; }
+.mini-progress i { width: 18px; height: 6px; border-radius: 4px; background: #e6dfd0; }
+.mini-progress i.on { background: var(--gold); }
+
+/* Dashboard footer */
+.dash + .site-footer { padding-top: 10px; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1150px) {
+  .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+  .manage-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 860px) {
+  .chart-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .kpi strong { font-size: 26px; }
+  .panel-card { padding: 18px; }
+}

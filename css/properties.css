@@ -1,0 +1,154 @@
+/* =========================================================
+   ANZEN 安全 — properties.css (properties.html only)
+   CSS by: Pranjal
+   Category tabs, filter bar, details popup, layout switcher,
+   pricing table, EMI calculator
+   ========================================================= */
+
+/* ---------- Category tabs ---------- */
+.category-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; }
+.cat-tab {
+  padding: 10px 20px; border-radius: 999px; border: 1.5px solid #ddd2bd; background: #fff; color: var(--text);
+  font-family: var(--sans); font-size: 14px; font-weight: 500; cursor: pointer; transition: .25s;
+}
+.cat-tab:hover { border-color: var(--gold); }
+.cat-tab.active { background: var(--navy); color: var(--gold-2); border-color: var(--navy); }
+
+/* ---------- Filter bar ---------- */
+.filter-bar {
+  display: grid; grid-template-columns: 2fr repeat(6, 1fr) auto; gap: 12px; align-items: end;
+  background: #fff; padding: 18px; border-radius: var(--radius); border: 1px solid #ece4d4; box-shadow: 0 8px 24px rgba(0,0,0,.05);
+}
+.filter-bar .field input, .filter-bar .field select { padding: 10px 12px; font-size: 14px; }
+.filter-bar .field label { font-size: 10px; }
+.reset-btn { height: 42px; }
+.result-count { margin: 22px 0 18px; color: #6b7280; font-size: 14px; }
+.result-count strong { color: var(--ink); }
+
+.sold-out { background: #eee; color: #888; cursor: not-allowed; }
+
+/* Empty state */
+.empty-state { text-align: center; padding: 60px 20px; color: #6b7280; }
+.kanji-lg { font-family: "Noto Serif JP", serif; font-size: 64px; color: var(--gold); display: block; }
+.empty-state h3 { font-family: var(--serif); font-size: 28px; color: var(--ink); }
+
+/* ---------- Details popup (<dialog>) ---------- */
+.modal {
+  border: none; border-radius: 18px; padding: 0; width: min(860px, 94vw); max-height: 90vh;
+  background: var(--washi); color: var(--text); box-shadow: 0 30px 80px rgba(0,0,0,.5); margin: auto;
+}
+.modal::backdrop { background: rgba(8, 11, 18, .75); backdrop-filter: blur(4px); }
+.modal[open] { animation: popIn .3s ease; }
+@keyframes popIn { from { opacity: 0; transform: scale(.95); } }
+.modal-close {
+  position: absolute; top: 14px; right: 14px; z-index: 2; width: 38px; height: 38px; border-radius: 50%;
+  border: none; background: rgba(14,19,29,.85); color: #fff; font-size: 16px; cursor: pointer;
+}
+.modal-body { display: grid; grid-template-columns: 1fr 1fr; }
+.modal-img { height: 100%; min-height: 320px; object-fit: cover; width: 100%; }
+.modal-info { padding: 30px; display: flex; flex-direction: column; gap: 12px; }
+.modal-info h2 { font-family: var(--serif); font-size: 32px; line-height: 1.1; }
+.modal-info .price { font-family: var(--serif); font-size: 30px; color: #9a6f24; }
+.detail-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; font-size: 14px; }
+.detail-list dt { color: #8a8f99; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; }
+.detail-list dd { font-weight: 600; margin-bottom: 4px; }
+.pay-plan { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.pay-step { background: #fff; border: 1px solid #ece4d4; border-radius: 10px; padding: 10px; text-align: center; font-size: 12px; }
+.pay-step strong { display: block; font-size: 15px; color: var(--ink); }
+
+/* ---------- Layout switcher (radio + :checked) ---------- */
+.layout-section { background: var(--ink); }
+.switcher input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+.switch-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin: 30px 0 24px; }
+.switch-tabs label {
+  padding: 12px 18px; border: 1px solid var(--line); border-radius: 10px; cursor: pointer;
+  font-size: 14px; color: #cfd3da; transition: .25s;
+}
+.switch-tabs label:hover { color: var(--gold); }
+.plan { display: none; grid-template-columns: 1.3fr 1fr; gap: 30px; background: var(--washi); color: var(--text); border-radius: 18px; padding: 26px; }
+#plan1:checked ~ .plan-1, #plan2:checked ~ .plan-2, #plan3:checked ~ .plan-3 { display: grid; animation: popIn .35s ease; }
+#plan1:checked ~ .switch-tabs label[for="plan1"],
+#plan2:checked ~ .switch-tabs label[for="plan2"],
+#plan3:checked ~ .switch-tabs label[for="plan3"] { background: var(--gold); color: var(--ink); border-color: var(--gold); font-weight: 600; }
+#plan1:focus-visible ~ .switch-tabs label[for="plan1"],
+#plan2:focus-visible ~ .switch-tabs label[for="plan2"],
+#plan3:focus-visible ~ .switch-tabs label[for="plan3"] { outline: 2px solid var(--gold-2); }
+
+/* Master plan diagram */
+.site-map {
+  background: var(--navy); border-radius: 14px; padding: 18px; display: grid; gap: 12px;
+  grid-template-columns: repeat(3, 1fr); grid-template-areas: "a club b" "blvd blvd blvd" "c gate d";
+  background-image: linear-gradient(rgba(212,168,90,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(212,168,90,.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.blk {
+  border: 1.5px solid #5f7f74; border-radius: 10px; min-height: 110px; display: grid; place-items: center; text-align: center;
+  color: var(--cream); font-size: 13px; font-weight: 600; letter-spacing: 1px; background: rgba(111,143,114,.12); padding: 8px;
+}
+.blk small { color: #aab3ad; font-weight: 400; letter-spacing: 0; }
+.blk-a { grid-area: a; } .blk-b { grid-area: b; } .blk-c { grid-area: c; } .blk-d { grid-area: d; }
+.blk-club { grid-area: club; border-color: var(--gold); background: rgba(212,168,90,.14); color: var(--gold-2); }
+.blk-gate { grid-area: gate; border-color: var(--sakura); background: rgba(232,165,181,.12); color: var(--sakura); }
+.boulevard { grid-area: blvd; border: 1.5px dashed var(--gold); border-radius: 8px; text-align: center; padding: 10px; color: var(--gold); font-size: 12px; letter-spacing: 4px; }
+
+/* Floor plan diagrams */
+.floor-plan {
+  display: grid; gap: 6px; background: #2a3142; padding: 10px; border-radius: 14px;
+  grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(3, 100px);
+  grid-template-areas: "living living court bed1" "kitchen lift court bed2" "park park park bed2";
+}
+.room { background: #f4efe4; border-radius: 6px; display: grid; place-items: center; text-align: center; font-size: 13px; font-weight: 600; color: var(--ink); padding: 6px; }
+.room small { color: #7a7f88; font-weight: 400; }
+.r-living { grid-area: living; } .r-court { grid-area: court; background: #dfe9dc; } .r-kitchen { grid-area: kitchen; }
+.r-bed1 { grid-area: bed1; } .r-bed2 { grid-area: bed2; } .r-lift { grid-area: lift; background: #efe2c4; } .r-park { grid-area: park; background: #dde3ee; }
+.floor-plan.club { grid-template-areas: "atrium atrium pool pool" "cafe onsen pool pool" "cafe kids kids gym"; }
+.c-atrium { grid-area: atrium; background: #efe2c4; } .c-pool { grid-area: pool; background: #d8e8f2; } .c-onsen { grid-area: onsen; }
+.c-cafe { grid-area: cafe; } .c-gym { grid-area: gym; } .c-kids { grid-area: kids; background: #f6dfe5; }
+
+.plan-info h3 { font-family: var(--serif); font-size: 30px; margin-bottom: 8px; }
+.plan-info p { color: #5d6370; margin-bottom: 16px; }
+.spec-list { display: grid; grid-template-columns: auto 1fr; gap: 10px 18px; font-size: 14px; }
+.spec-list dt { color: #8a8f99; }
+.spec-list dd { font-weight: 600; text-align: right; border-bottom: 1px dashed #ddd2bd; padding-bottom: 6px; }
+
+/* ---------- Pricing table ---------- */
+.table-wrap { overflow-x: auto; margin-top: 30px; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+.price-table { width: 100%; border-collapse: collapse; background: #fff; min-width: 760px; font-size: 14px; }
+.price-table caption { caption-side: top; text-align: left; padding: 0 0 12px; color: #6b7280; font-size: 13px; }
+.price-table th { background: var(--navy); color: var(--gold-2); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; text-align: left; padding: 16px; }
+.price-table td { padding: 16px; border-bottom: 1px solid #efe8da; }
+.price-table tbody tr:nth-child(even) { background: #fbf8f2; }
+.price-table tbody tr:hover { background: #f5ecda; }
+.price-table tfoot td { font-size: 12px; color: #8a8f99; border-bottom: none; }
+
+/* ---------- EMI calculator ---------- */
+.emi-section { background: linear-gradient(135deg, var(--navy), #241f15); }
+.emi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.emi-card { background: var(--washi); border-radius: 18px; padding: 28px; display: grid; gap: 16px; color: var(--text); }
+.emi-card input[type="range"] { accent-color: var(--gold); padding: 0; border: none; }
+.emi-card output { color: #9a6f24; font-weight: 700; }
+.emi-result { background: var(--navy); color: var(--cream); border-radius: 12px; padding: 18px; text-align: center; }
+.emi-result span { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-2); }
+.emi-result strong { display: block; font-family: var(--serif); font-size: 40px; color: var(--gold); }
+.emi-result small { color: #aab0ba; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .filter-bar { grid-template-columns: repeat(4, 1fr); }
+  .search-field { grid-column: 1 / -1; }
+}
+@media (max-width: 860px) {
+  .plan { grid-template-columns: 1fr; }
+  .modal-body { grid-template-columns: 1fr; }
+  .modal-img { min-height: 220px; max-height: 260px; }
+  .emi-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 560px) {
+  .filter-bar { grid-template-columns: 1fr 1fr; }
+  .reset-btn { grid-column: 1 / -1; }
+  .site-map { grid-template-columns: 1fr 1fr; grid-template-areas: "a b" "club club" "blvd blvd" "c d" "gate gate"; }
+  .floor-plan { grid-template-rows: repeat(3, 80px); font-size: 11px; }
+  .room { font-size: 11px; }
+  .detail-list, .pay-plan { grid-template-columns: 1fr 1fr; }
+  .modal-info { padding: 22px; }
+}
