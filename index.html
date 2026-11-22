@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!-- =========================================================
+     ANZEN 安全 — index.html (Home Showcase)
+     HTML by: Akshita
+     Page sections: Header → Hero + Quick Search → Stats →
+     Anzen Promise (safety) → Philosophy → Featured Listings →
+     Tokyo Clubhouse Gallery → Call to Action → Footer
+     ========================================================= -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ANZEN — Indo-Japanese gated plotted township in Sector 80, Greater Faridabad. Where every corner feels like a safe space." />
+  <title>ANZEN 安全 | Where Every Corner Feels Like a Safe Space</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a href="index.html" class="brand" aria-label="ANZEN home">
+        <span class="brand-mark">安全</span>
+        <span>
+          <span class="brand-name">ANZEN</span><br />
+          <span class="brand-sub">Sector 80 • Greater Faridabad</span>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="num">01.</span>Home</a></li>
+        <li><a href="properties.html"><span class="num">02.</span>Properties &amp; Plans</a></li>
+        <li><a href="contact.html"><span class="num">03.</span>Location &amp; Visit</a></li>
+        <li><a href="dashboard.html"><span class="num">04.</span>Dashboard</a></li>
+        <li><a href="contact.html#book" class="btn btn-gold btn-sm nav-cta">Book Site Visit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO + QUICK SEARCH ============ -->
+    <section class="hero" id="top">
+      <div class="container hero-inner">
+        <p class="pill">✦ Indo-Japanese Gated Township • Sector 80, Greater Faridabad</p>
+        <h1 class="hero-title">Where Every Corner <em class="accent">Feels Like</em> a Safe Space.</h1>
+        <p class="hero-lead">
+          <strong>ANZEN (安全)</strong> means <em>safety</em> in Japanese. Freehold plots and turnkey villas
+          inside a 5-tier secured, 70% green township — inspired by the calm of Kyoto and built for Indian families.
+        </p>
+        <div class="hero-actions">
+          <a href="properties.html" class="btn btn-gold">Explore Properties →</a>
+          <a href="contact.html#book" class="btn btn-outline">Book Site Visit</a>
+        </div>
+
+        <!-- Quick search: JavaScript sends these values to properties.html as URL parameters -->
+        <form class="quick-search" id="quickSearch" aria-label="Quick property search">
+          <div class="qs-field">
+            <label for="qsType">Residency Type</label>
+            <select id="qsType" name="type">
+              <option value="">All Types</option>
+              <option value="Plot">Freehold Plot</option>
+              <option value="Villa">Turnkey Villa</option>
+              <option value="Estate">Forest Estate</option>
+            </select>
+          </div>
+          <div class="qs-field">
+            <label for="qsSize">Plot Dimension</label>
+            <select id="qsSize" name="size">
+              <option value="">Any Size</option>
+              <option value="0-250">180 – 250 Sq. Yds.</option>
+              <option value="251-400">251 – 400 Sq. Yds.</option>
+              <option value="401-9999">400+ Sq. Yds.</option>
+            </select>
+          </div>
+          <div class="qs-field">
+            <label for="qsFacing">Orientation</label>
+            <select id="qsFacing" name="facing">
+              <option value="">Any Facing</option>
+              <option value="East">East / Morning Sun</option>
+              <option value="North">North</option>
+              <option value="South">South</option>
+              <option value="West">West</option>
+            </select>
+          </div>
+          <div class="qs-field">
+            <label for="qsBudget">Investment</label>
+            <select id="qsBudget" name="budget">
+              <option value="">Any Budget</option>
+              <option value="3">Up to ₹3 Cr</option>
+              <option value="5">Up to ₹5 Cr</option>
+              <option value="7">Up to ₹7 Cr</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-gold qs-btn">View Availability →</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ STATS STRIP ============ -->
+    <section class="stats" aria-label="Township highlights">
+      <div class="container stats-grid">
+        <div class="stat">
+          <h3>2.0 Acres</h3>
+          <p class="stat-title">Grand Tokyo Clubhouse</p>
+          <p>Glass pavilion with heated infinity pool &amp; onsen spa</p>
+        </div>
+        <div class="stat">
+          <h3><span id="statAvailable">0</span> Homes</h3>
+          <p class="stat-title">Available Right Now</p>
+          <p>Live count from our listings — updates when status changes</p>
+        </div>
+        <div class="stat">
+          <h3>180–500</h3>
+          <p class="stat-title">Sq. Yds. Freehold Plots</p>
+          <p>Stilt + 4 floors, 24m &amp; 12m wide tree-lined avenues</p>
+        </div>
+        <div class="stat">
+          <h3>70% Open</h3>
+          <p class="stat-title">Miyawaki Green Cover</p>
+          <p>30,000+ native trees, koi water bodies &amp; reflexology trails</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ANZEN PROMISE (SAFETY) ============ -->
+    <section class="light promise" id="promise">
+      <div class="container">
+        <p class="eyebrow">The Anzen Promise</p>
+        <h2 class="section-title">Safety Isn't a Feature. <em class="accent">It's Our Name.</em></h2>
+        <p class="section-lead">Every corner of ANZEN is designed so that children can cycle freely, parents can walk at midnight and homes stay protected even when you travel.</p>
+
+        <div class="promise-grid">
+          <article class="promise-card">
+            <span class="kanji">守</span>
+            <h3>5-Tier Gated Security</h3>
+            <p>Boom barriers, RFID car tags, OTP visitor entry, guard posts and round-the-clock patrols.</p>
+          </article>
+          <article class="promise-card">
+            <span class="kanji">見</span>
+            <h3>24×7 CCTV Command Centre</h3>
+            <p>400+ cameras covering every street, park and entry with motion alerts to the control room.</p>
+          </article>
+          <article class="promise-card">
+            <span class="kanji">鍵</span>
+            <h3>Biometric &amp; Smart Locks</h3>
+            <p>Fingerprint entry at clubhouse and towers, smart locks and video door phones in every villa.</p>
+          </article>
+          <article class="promise-card">
+            <span class="kanji">灯</span>
+            <h3>Lit, Women-Safe Walkways</h3>
+            <p>No dark corners — every path is lit at night with SOS help-poles every 150 metres.</p>
+          </article>
+          <article class="promise-card">
+            <span class="kanji">火</span>
+            <h3>Fire &amp; Earthquake Ready</h3>
+            <p>Seismic Zone-IV structural design, fire hydrants on every block and sprinklered clubhouse.</p>
+          </article>
+          <article class="promise-card">
+            <span class="kanji">証</span>
+            <h3>Clear Freehold Titles</h3>
+            <p>Transparent pricing, freehold ownership and a 30:40:30 payment plan with no hidden charges.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PHILOSOPHY ============ -->
+    <section class="philosophy" id="philosophy">
+      <div class="container philo-grid">
+        <figure class="philo-img">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=70" alt="Calm Japanese-style living room with wooden finishes" loading="lazy" />
+          <figcaption class="philo-tag">和 • 森林<br /><span>ANZEN Philosophy</span></figcaption>
+        </figure>
+        <div>
+          <p class="eyebrow">Design Philosophy</p>
+          <h2 class="section-title">Crafted around <em class="accent">Komorebi</em> — Sunlight Filtering Through Trees.</h2>
+          <p class="section-lead">Every plot is oriented for natural cross-ventilation, acoustic calm and direct access to green pockets — so home feels peaceful as well as protected.</p>
+          <div class="philo-cards">
+            <div class="philo-card">
+              <h4>Shizen <span>(Nature First)</span></h4>
+              <p>Dense Miyawaki micro-forests lower township temperature by up to 3.5°C all year.</p>
+            </div>
+            <div class="philo-card">
+              <h4>Seijaku <span>(Stillness)</span></h4>
+              <p>Underground utility ducting, EV-ready driveways and zero through-traffic streets.</p>
+            </div>
+          </div>
+          <a href="properties.html#layout" class="btn btn-outline">Inspect Master Layout →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURED LISTINGS (filled by JavaScript) ============ -->
+    <section class="light" id="featured">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Featured Listings</p>
+            <h2 class="section-title">Available <em class="accent">Right Now</em></h2>
+          </div>
+          <a href="properties.html" class="btn btn-dark">View All Properties →</a>
+        </div>
+        <div class="card-grid" id="featuredGrid">
+          <p class="loading">Loading listings…</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TOKYO CLUBHOUSE — expanding gallery (pure CSS hover) ============ -->
+    <section class="clubhouse" id="clubhouse">
+      <div class="container">
+        <p class="eyebrow">2-Acre Social Sanctuary</p>
+        <h2 class="section-title">The <em class="accent">Tokyo-Themed</em> Grand Clubhouse</h2>
+        <p class="section-lead">Hover or tap across the five zones to expand each one.</p>
+        <div class="flex-gallery">
+          <div class="panel" style="--img: url('https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=900&q=70')" tabindex="0">
+            <span class="panel-num">01</span><h3>Shibuya Grand Atrium</h3>
+          </div>
+          <div class="panel" style="--img: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=70')" tabindex="0">
+            <span class="panel-num">02</span><h3>Heated Infinity Pool</h3>
+          </div>
+          <div class="panel" style="--img: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=70')" tabindex="0">
+            <span class="panel-num">03</span><h3>Miyawaki Zen Forest</h3>
+          </div>
+          <div class="panel" style="--img: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=900&q=70')" tabindex="0">
+            <span class="panel-num">04</span><h3>Matcha &amp; Teppanyaki Lounge</h3>
+          </div>
+          <div class="panel" style="--img: url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=900&q=70')" tabindex="0">
+            <span class="panel-num">05</span><h3>Onsen Wellness Spa</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CALL TO ACTION ============ -->
+    <section class="cta">
+      <div class="container cta-inner">
+        <div>
+          <h2 class="section-title">See the Safety for Yourself.</h2>
+          <p>Book a private site visit — complimentary chauffeur pick-up from anywhere in Delhi NCR.</p>
+        </div>
+        <a href="contact.html#book" class="btn btn-gold">Schedule a Visit →</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="brand">
+          <span class="brand-mark">安全</span>
+          <span><span class="brand-name">ANZEN</span><br /><span class="brand-sub">Sector 80 • Greater Faridabad</span></span>
+        </a>
+        <p class="footer-about">An Indo-Japanese gated plotted township where every corner feels like a safe space.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">01. Home</a></li>
+          <li><a href="properties.html">02. Properties &amp; Plans</a></li>
+          <li><a href="contact.html">03. Location &amp; Visit</a></li>
+          <li><a href="dashboard.html">04. Dashboard</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit Us</h4>
+        <ul>
+          <li>Sales Pavilion, Sector 80, Greater Faridabad, Haryana</li>
+          <li>+91 12345 67890 (demo)</li>
+          <li>09:30 AM – 07:30 PM, all 7 days</li>
+        </ul>
+      </div>
+      <div>
+        <h4>CSE326 Team</h4>
+        <div class="team-box">
+          <span><strong>Akshita</strong> — HTML<br /><code>*.html</code></span>
+          <span><strong>Pranjal</strong> — CSS<br /><code>css/*.css</code></span>
+          <span><strong>Jyotsnarini</strong> — JavaScript<br /><code>js/*.js</code></span>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year">2026</span> ANZEN 安全 — Where Every Corner Feels Like a Safe Space</span>
+      <span class="demo-note">Student project (CSE326, LPU). All names, prices &amp; details are fictional.</span>
+    </div>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

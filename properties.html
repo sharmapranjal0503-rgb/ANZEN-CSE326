@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!-- =========================================================
+     ANZEN 安全 — properties.html (Properties & Plans)
+     HTML by: Akshita
+     Sections: Hero → Category tabs + Search & Filters →
+     Listings grid → Property details popup (<dialog>) →
+     Master Layout switcher → Pricing table → EMI calculator
+     ========================================================= -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Browse ANZEN freehold plots and turnkey villas — search, filter by type, size, budget and status." />
+  <title>Properties &amp; Plans | ANZEN 安全</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/properties.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a href="index.html" class="brand" aria-label="ANZEN home">
+        <span class="brand-mark">安全</span>
+        <span>
+          <span class="brand-name">ANZEN</span><br />
+          <span class="brand-sub">Sector 80 • Greater Faridabad</span>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="num">01.</span>Home</a></li>
+        <li><a href="properties.html"><span class="num">02.</span>Properties &amp; Plans</a></li>
+        <li><a href="contact.html"><span class="num">03.</span>Location &amp; Visit</a></li>
+        <li><a href="dashboard.html"><span class="num">04.</span>Dashboard</a></li>
+        <li><a href="contact.html#book" class="btn btn-gold btn-sm nav-cta">Book Site Visit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ PAGE HERO ============ -->
+    <section class="page-hero" style="--hero-img: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1800&q=70')">
+      <div class="container">
+        <p class="eyebrow">02 • Properties &amp; Plans</p>
+        <h1 class="section-title">Bespoke Plotted Inventory &amp; <em class="accent">Architectural Plans</em></h1>
+        <p class="section-lead">Search and filter freehold plots, forest estates and turnkey villas across Blocks A–D. Every listing shows its live status — Available, Booked or Sold.</p>
+      </div>
+    </section>
+
+    <!-- ============ SEARCH, CATEGORIES & FILTERS ============ -->
+    <section class="light listings">
+      <div class="container">
+
+        <!-- Category tabs (JavaScript reads data-type) -->
+        <div class="category-tabs" role="tablist" aria-label="Property categories">
+          <button class="cat-tab active" data-type="" role="tab">All</button>
+          <button class="cat-tab" data-type="Plot" role="tab">Freehold Plots</button>
+          <button class="cat-tab" data-type="Villa" role="tab">Turnkey Villas</button>
+          <button class="cat-tab" data-type="Estate" role="tab">Forest Estates</button>
+        </div>
+
+        <form class="filter-bar" id="filterForm" aria-label="Search and filter properties">
+          <div class="field search-field">
+            <label for="fSearch">Search</label>
+            <input type="search" id="fSearch" name="search" placeholder="Name, ID or keyword e.g. Kyoto, AZ-401" />
+          </div>
+          <div class="field">
+            <label for="fBlock">Block</label>
+            <select id="fBlock" name="block">
+              <option value="">All Blocks</option>
+              <option value="A">Block A</option>
+              <option value="B">Block B</option>
+              <option value="C">Block C</option>
+              <option value="D">Block D</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fSize">Size</label>
+            <select id="fSize" name="size">
+              <option value="">Any Size</option>
+              <option value="0-250">180 – 250 Sq. Yds.</option>
+              <option value="251-400">251 – 400 Sq. Yds.</option>
+              <option value="401-9999">400+ Sq. Yds.</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fFacing">Facing</label>
+            <select id="fFacing" name="facing">
+              <option value="">Any Facing</option>
+              <option value="East">East</option>
+              <option value="North">North</option>
+              <option value="South">South</option>
+              <option value="West">West</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fBudget">Max Budget</label>
+            <select id="fBudget" name="budget">
+              <option value="">Any Budget</option>
+              <option value="3">Up to ₹3 Cr</option>
+              <option value="5">Up to ₹5 Cr</option>
+              <option value="7">Up to ₹7 Cr</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fStatus">Status</label>
+            <select id="fStatus" name="status">
+              <option value="">All Status</option>
+              <option value="Available">Available</option>
+              <option value="Booked">Booked</option>
+              <option value="Sold">Sold</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="fSort">Sort By</label>
+            <select id="fSort" name="sort">
+              <option value="">Featured</option>
+              <option value="price-asc">Price: Low → High</option>
+              <option value="price-desc">Price: High → Low</option>
+              <option value="size-asc">Size: Small → Large</option>
+              <option value="size-desc">Size: Large → Small</option>
+            </select>
+          </div>
+          <button type="reset" class="btn btn-outline btn-sm reset-btn" id="resetFilters">Reset</button>
+        </form>
+
+        <p class="result-count" id="resultCount" aria-live="polite">Showing all properties</p>
+
+        <!-- Listings are inserted here by JavaScript -->
+        <div class="card-grid" id="propertyGrid"></div>
+        <div class="empty-state" id="noResults" hidden>
+          <span class="kanji-lg">無</span>
+          <h3>No properties match your filters</h3>
+          <p>Try a different budget or block, or reset the filters.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROPERTY DETAILS POPUP (HTML5 dialog) ============ -->
+    <dialog id="propertyModal" class="modal" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close details">✕</button>
+      <div class="modal-body" id="modalBody"><!-- filled by JavaScript --></div>
+    </dialog>
+
+    <!-- ============ MASTER LAYOUT SWITCHER (hidden radio buttons + CSS) ============ -->
+    <section class="layout-section" id="layout">
+      <div class="container">
+        <p class="eyebrow">Architectural Schematics</p>
+        <h2 class="section-title">Master Layout &amp; <em class="accent">Floor Plan</em> Switcher</h2>
+        <p class="section-lead">Click a tab to switch plans. Built with hidden radio buttons and CSS sibling selectors.</p>
+
+        <div class="switcher">
+          <input type="radio" name="plan" id="plan1" checked />
+          <input type="radio" name="plan" id="plan2" />
+          <input type="radio" name="plan" id="plan3" />
+
+          <div class="switch-tabs">
+            <label for="plan1">01. Sector 80 Master Plan</label>
+            <label for="plan2">02. 250 Sq. Yds. Villa Blueprint</label>
+            <label for="plan3">03. 2-Acre Clubhouse Layout</label>
+          </div>
+
+          <!-- Plan 1: Township master plan -->
+          <div class="plan plan-1">
+            <div class="site-map" aria-label="Township master plan diagram">
+              <div class="blk blk-a">BLOCK A<br /><small>180–250 Sq. Yds.</small></div>
+              <div class="blk blk-club">2-ACRE TOKYO CLUB<br /><small>Pool • Onsen • Atrium</small></div>
+              <div class="blk blk-b">BLOCK B<br /><small>350–500 Sq. Yds.</small></div>
+              <div class="boulevard">24M WIDE SAKURA BOULEVARD</div>
+              <div class="blk blk-c">BLOCK C<br /><small>Miyawaki Forest Plots</small></div>
+              <div class="blk blk-gate">MAIN GATE<br /><small>5-Tier Security</small></div>
+              <div class="blk blk-d">BLOCK D<br /><small>Kyoto Villa Enclave</small></div>
+            </div>
+            <div class="plan-info">
+              <h3>Sector 80 Gated Township</h3>
+              <p>Zero dead-end roads, lit bamboo walkways and a clubhouse within a 3-minute walk from every plot.</p>
+              <dl class="spec-list">
+                <dt>Total Township</dt><dd>Low-Density Plotted Sanctuary</dd>
+                <dt>Primary Boulevard</dt><dd>24 Metres (Tree-lined Median)</dd>
+                <dt>Internal Roads</dt><dd>12 Metres &amp; 9 Metres</dd>
+                <dt>Security</dt><dd>Single guarded entry + 400 CCTV</dd>
+                <dt>Open Area</dt><dd>70% Greens &amp; Water Bodies</dd>
+              </dl>
+            </div>
+          </div>
+
+          <!-- Plan 2: Villa floor plan -->
+          <div class="plan plan-2">
+            <div class="floor-plan" aria-label="Villa floor plan diagram">
+              <div class="room r-living">Shoji Living<br /><small>22' × 18'</small></div>
+              <div class="room r-court">Zen Courtyard<br /><small>Open to sky</small></div>
+              <div class="room r-kitchen">Kitchen<br /><small>14' × 12'</small></div>
+              <div class="room r-bed1">Master Bed<br /><small>18' × 15'</small></div>
+              <div class="room r-bed2">Bedroom 2<br /><small>14' × 13'</small></div>
+              <div class="room r-lift">Lift<br /><small>6-Pax</small></div>
+              <div class="room r-park">EV Parking ×3</div>
+            </div>
+            <div class="plan-info">
+              <h3>Kyoto Courtyard Villa — Ground Floor</h3>
+              <p>250 Sq. Yds. plot, 4,600 Sq. Ft. built-up across stilt + 3 floors.</p>
+              <dl class="spec-list">
+                <dt>Configuration</dt><dd>4 BHK + Lounge</dd>
+                <dt>Private Elevator</dt><dd>6-Passenger Lift</dd>
+                <dt>Safety</dt><dd>Smart locks, video door phone, panic button</dd>
+                <dt>Parking</dt><dd>3 Covered EV Bays</dd>
+              </dl>
+            </div>
+          </div>
+
+          <!-- Plan 3: Clubhouse layout -->
+          <div class="plan plan-3">
+            <div class="floor-plan club" aria-label="Clubhouse layout diagram">
+              <div class="room c-atrium">Shibuya Grand Atrium</div>
+              <div class="room c-pool">Heated Infinity Pool</div>
+              <div class="room c-onsen">Onsen Spa</div>
+              <div class="room c-cafe">Matcha &amp; Teppanyaki</div>
+              <div class="room c-gym">Gym &amp; Yoga</div>
+              <div class="room c-kids">Kids' Safe Zone</div>
+            </div>
+            <div class="plan-info">
+              <h3>2-Acre Tokyo Clubhouse</h3>
+              <p>A glass pavilion around a koi pond, with a supervised, fenced kids' zone in full view of the café.</p>
+              <dl class="spec-list">
+                <dt>Area</dt><dd>2 Acres</dd>
+                <dt>Access</dt><dd>Biometric for residents</dd>
+                <dt>Timing</dt><dd>06:00 AM – 11:00 PM</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING TABLE (semantic table elements) ============ -->
+    <section class="light" id="pricing">
+      <div class="container">
+        <p class="eyebrow">Transparent Pricing</p>
+        <h2 class="section-title">Indicative Pricing &amp; <em class="accent">30 : 40 : 30</em> Payment Plan</h2>
+        <div class="table-wrap">
+          <table class="price-table">
+            <caption>Indicative prices for ANZEN inventory (excluding GST &amp; stamp duty)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Inventory</th>
+                <th scope="col">Plot Area</th>
+                <th scope="col">Base Price (BSP)</th>
+                <th scope="col">Club &amp; EDC/IDC</th>
+                <th scope="col">Payment Plan</th>
+                <th scope="col">Total Outlay</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Sakura Freehold Plot</td><td>180 Sq. Yds.</td><td>₹1,20,000 / Sq. Yd.</td><td>₹9.00 Lakhs</td><td>30% Booking • 40% Infra • 30% Possession</td><td><strong>₹2.25 Cr*</strong></td></tr>
+              <tr><td>Nara Park Facing Plot</td><td>250 Sq. Yds.</td><td>₹1,21,000 / Sq. Yd.</td><td>₹9.50 Lakhs</td><td>30% Booking • 40% Infra • 30% Possession</td><td><strong>₹3.12 Cr*</strong></td></tr>
+              <tr><td>Ginza Boulevard Plot</td><td>350 Sq. Yds.</td><td>₹1,22,000 / Sq. Yd.</td><td>₹11.00 Lakhs</td><td>30% Booking • 40% Infra • 30% Possession</td><td><strong>₹4.38 Cr*</strong></td></tr>
+              <tr><td>Kyoto Courtyard Villa (4 BHK)</td><td>250 Sq. Yds.</td><td>Turnkey Residence</td><td>Complimentary</td><td>Construction-linked 4-stage</td><td><strong>₹4.95 Cr*</strong></td></tr>
+              <tr><td>Osaka Imperial Crown Plot</td><td>500 Sq. Yds.</td><td>₹1,20,500 / Sq. Yd.</td><td>₹12.50 Lakhs</td><td>30% Booking • 40% Infra • 30% Possession</td><td><strong>₹6.15 Cr*</strong></td></tr>
+            </tbody>
+            <tfoot>
+              <tr><td colspan="6">*Indicative prices for academic demonstration only. All values are fictional.</td></tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EMI CALCULATOR ============ -->
+    <section class="emi-section" id="emi">
+      <div class="container emi-grid">
+        <div>
+          <p class="eyebrow">Plan Your Investment</p>
+          <h2 class="section-title">Home Loan <em class="accent">EMI</em> Calculator</h2>
+          <p class="section-lead">Choose a property and adjust the loan to see your monthly EMI instantly.</p>
+        </div>
+        <form class="emi-card" id="emiForm" aria-label="EMI calculator">
+          <div class="field">
+            <label for="emiProperty">Property</label>
+            <select id="emiProperty"><!-- filled by JavaScript --></select>
+          </div>
+          <div class="field">
+            <label for="emiLoan">Loan Amount: <output id="emiLoanOut">80</output>% of price</label>
+            <input type="range" id="emiLoan" min="10" max="90" step="5" value="80" />
+          </div>
+          <div class="field">
+            <label for="emiRate">Interest Rate: <output id="emiRateOut">8.5</output>% p.a.</label>
+            <input type="range" id="emiRate" min="6" max="14" step="0.1" value="8.5" />
+          </div>
+          <div class="field">
+            <label for="emiYears">Tenure: <output id="emiYearsOut">20</output> years</label>
+            <input type="range" id="emiYears" min="5" max="30" step="1" value="20" />
+          </div>
+          <div class="emi-result">
+            <span>Monthly EMI</span>
+            <strong id="emiResult">₹0</strong>
+            <small id="emiBreakup"></small>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="brand">
+          <span class="brand-mark">安全</span>
+          <span><span class="brand-name">ANZEN</span><br /><span class="brand-sub">Sector 80 • Greater Faridabad</span></span>
+        </a>
+        <p class="footer-about">An Indo-Japanese gated plotted township where every corner feels like a safe space.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">01. Home</a></li>
+          <li><a href="properties.html">02. Properties &amp; Plans</a></li>
+          <li><a href="contact.html">03. Location &amp; Visit</a></li>
+          <li><a href="dashboard.html">04. Dashboard</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit Us</h4>
+        <ul>
+          <li>Sales Pavilion, Sector 80, Greater Faridabad, Haryana</li>
+          <li>+91 12345 67890 (demo)</li>
+          <li>09:30 AM – 07:30 PM, all 7 days</li>
+        </ul>
+      </div>
+      <div>
+        <h4>CSE326 Team</h4>
+        <div class="team-box">
+          <span><strong>Akshita</strong> — HTML<br /><code>*.html</code></span>
+          <span><strong>Pranjal</strong> — CSS<br /><code>css/*.css</code></span>
+          <span><strong>Jyotsnarini</strong> — JavaScript<br /><code>js/*.js</code></span>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year">2026</span> ANZEN 安全 — Where Every Corner Feels Like a Safe Space</span>
+      <span class="demo-note">Student project (CSE326, LPU). All names, prices &amp; details are fictional.</span>
+    </div>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/properties.js"></script>
+</body>
+</html>

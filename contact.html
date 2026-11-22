@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!-- =========================================================
+     ANZEN 安全 — contact.html (Location & Visit)
+     HTML by: Akshita
+     Sections: Hero → Connectivity accordions (<details>) +
+     Google Map → Lightbox gallery (CSS :target) →
+     Site-visit booking form (<fieldset>, <legend>) →
+     Booking status tracker → Footer
+     ========================================================= -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Visit ANZEN, Sector 80 Greater Faridabad — connectivity, map, gallery and private site-visit booking." />
+  <title>Location &amp; Visit | ANZEN 安全</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a href="index.html" class="brand" aria-label="ANZEN home">
+        <span class="brand-mark">安全</span>
+        <span>
+          <span class="brand-name">ANZEN</span><br />
+          <span class="brand-sub">Sector 80 • Greater Faridabad</span>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="num">01.</span>Home</a></li>
+        <li><a href="properties.html"><span class="num">02.</span>Properties &amp; Plans</a></li>
+        <li><a href="contact.html"><span class="num">03.</span>Location &amp; Visit</a></li>
+        <li><a href="dashboard.html"><span class="num">04.</span>Dashboard</a></li>
+        <li><a href="contact.html#book" class="btn btn-gold btn-sm nav-cta">Book Site Visit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ PAGE HERO ============ -->
+    <section class="page-hero" style="--hero-img: url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1800&q=70')">
+      <div class="container">
+        <p class="eyebrow">03 • Location &amp; Visit</p>
+        <h1 class="section-title">Sector 80 Connectivity, Visual Gallery &amp; <em class="accent">Private Visit</em></h1>
+        <p class="section-lead">Explore the neighbourhood on the live map, browse the gallery and book a chauffeur-driven site visit in under a minute.</p>
+        <div class="hero-links">
+          <a href="#book" class="btn btn-gold">Book Site Visit</a>
+          <a href="#track" class="btn btn-outline">Track My Booking</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONNECTIVITY + MAP ============ -->
+    <section class="light" id="location">
+      <div class="container loc-grid">
+        <div>
+          <p class="eyebrow">Effortless NCR Connectivity</p>
+          <h2 class="section-title">Everything Close, <em class="accent">Nothing Loud</em></h2>
+          <p class="section-lead">Click each category to see driving times from the ANZEN main gate.</p>
+
+          <div class="accordions">
+            <details open>
+              <summary>Expressways &amp; Metro <span>05 – 10 mins</span></summary>
+              <ul>
+                <li>Delhi–Mumbai Expressway Link Road <b>04 mins</b></li>
+                <li>Bata Chowk Violet Line Metro Station <b>08 mins</b></li>
+                <li>FNG (Faridabad–Noida–Ghaziabad) Corridor <b>10 mins</b></li>
+                <li>South Delhi (Nehru Place / GK-II via Badarpur) <b>25 mins</b></li>
+              </ul>
+            </details>
+            <details>
+              <summary>Schools &amp; Universities <span>05 – 12 mins</span></summary>
+              <ul>
+                <li>International school (CBSE / IB) <b>05 mins</b></li>
+                <li>Engineering &amp; management colleges <b>10 mins</b></li>
+                <li>Pre-schools &amp; day-care centres <b>06 mins</b></li>
+              </ul>
+            </details>
+            <details>
+              <summary>Hospitals &amp; Emergency <span>08 – 15 mins</span></summary>
+              <ul>
+                <li>Multi-speciality hospital <b>08 mins</b></li>
+                <li>Fire station <b>07 mins</b></li>
+                <li>Police station <b>06 mins</b></li>
+              </ul>
+            </details>
+            <details>
+              <summary>Shopping &amp; Recreation <span>03 – 12 mins</span></summary>
+              <ul>
+                <li>Neighbourhood high-street retail <b>03 mins</b></li>
+                <li>Mall &amp; multiplex <b>12 mins</b></li>
+                <li>Aravalli nature trails <b>15 mins</b></li>
+              </ul>
+            </details>
+          </div>
+        </div>
+
+        <div class="map-card">
+          <iframe
+            title="Map of Sector 80, Greater Faridabad"
+            src="https://maps.google.com/maps?q=Sector%2080%2C%20Faridabad%2C%20Haryana&z=14&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <div class="map-info">
+            <p><strong>ANZEN Sales Pavilion:</strong> Sector 80, Greater Faridabad, Haryana 121002</p>
+            <p class="coords">Lat 28.394° N • Long 77.348° E</p>
+            <a class="btn btn-dark btn-sm" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Sector+80+Faridabad+Haryana">Get Directions ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LIGHTBOX GALLERY (pure CSS :target) ============ -->
+    <section class="gallery" id="gallery">
+      <div class="container">
+        <p class="eyebrow">Architectural Visuals</p>
+        <h2 class="section-title">Click Any Photo for <em class="accent">Full-Screen View</em></h2>
+        <div class="gallery-grid">
+          <a href="#lightbox-1" class="g-item g-wide">
+            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1000&q=70" alt="Tokyo Clubhouse at twilight" loading="lazy" />
+            <span><b>Tokyo Clubhouse Twilight</b>Illuminated glass pavilion &amp; koi pond</span>
+          </a>
+          <a href="#lightbox-2" class="g-item">
+            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=70" alt="Heated lap pool" loading="lazy" />
+            <span><b>Heated Lap Pool</b>Timber cabanas &amp; forest horizon</span>
+          </a>
+          <a href="#lightbox-3" class="g-item">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=70" alt="Kyoto villa courtyard living" loading="lazy" />
+            <span><b>Kyoto Villa Courtyard</b>Seamless indoor–outdoor flow</span>
+          </a>
+          <a href="#lightbox-4" class="g-item g-wide">
+            <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=70" alt="Miyawaki zen forest trail" loading="lazy" />
+            <span><b>Miyawaki Zen Trail</b>Stone-lantern botanical walkways</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Lightbox overlays: visible only when their #id is in the URL (:target) -->
+      <div class="lightbox" id="lightbox-1"><a href="#gallery" class="lb-close" aria-label="Close">✕</a><img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1600&q=75" alt="Tokyo Clubhouse at twilight" /></div>
+      <div class="lightbox" id="lightbox-2"><a href="#gallery" class="lb-close" aria-label="Close">✕</a><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1600&q=75" alt="Heated lap pool" /></div>
+      <div class="lightbox" id="lightbox-3"><a href="#gallery" class="lb-close" aria-label="Close">✕</a><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=75" alt="Kyoto villa courtyard living" /></div>
+      <div class="lightbox" id="lightbox-4"><a href="#gallery" class="lb-close" aria-label="Close">✕</a><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=75" alt="Miyawaki zen forest trail" /></div>
+    </section>
+
+    <!-- ============ SITE VISIT BOOKING FORM ============ -->
+    <section class="light" id="book">
+      <div class="container book-grid">
+        <aside class="desk">
+          <p class="eyebrow">Private Chauffeur Preview</p>
+          <h2 class="section-title">Schedule a Private <em class="accent">Site Visit</em></h2>
+          <p class="section-lead">Fill in the form and our relationship manager will call you within 24 hours to confirm.</p>
+          <div class="desk-card">
+            <h3>Direct Private Desk</h3>
+            <p><strong>Pavilion:</strong> Plot 1, Sector 80, Greater Faridabad, Haryana</p>
+            <p><strong>Concierge:</strong> +91 12345 67890 (demo)</p>
+            <p><strong>Visiting Hours:</strong> 09:30 AM – 07:30 PM (all 7 days)</p>
+            <p class="safe-note">安全 Every visitor is verified by OTP at the gate — your visit is as safe as our residents.</p>
+          </div>
+        </aside>
+
+        <!-- novalidate: JavaScript shows our own friendly error messages -->
+        <form class="booking-form" id="bookingForm" novalidate>
+          <div class="form-alert" id="bookingAlert" role="alert"></div>
+
+          <fieldset>
+            <legend>01. Guest Details</legend>
+            <div class="form-grid">
+              <div class="field full">
+                <label for="bName">Full Name *</label>
+                <input type="text" id="bName" name="name" placeholder="e.g. Aarav Singhania" autocomplete="name" />
+                <small class="error-msg"></small>
+              </div>
+              <div class="field">
+                <label for="bPhone">10-Digit Mobile Number *</label>
+                <input type="tel" id="bPhone" name="phone" placeholder="9876543210" maxlength="10" inputmode="numeric" autocomplete="tel" />
+                <small class="error-msg"></small>
+              </div>
+              <div class="field">
+                <label for="bEmail">Email Address *</label>
+                <input type="email" id="bEmail" name="email" placeholder="name@example.com" autocomplete="email" />
+                <small class="error-msg"></small>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>02. Visit Preferences</legend>
+            <div class="form-grid">
+              <div class="field full">
+                <label for="bProperty">Preferred Plot / Villa *</label>
+                <select id="bProperty" name="property"><!-- filled by JavaScript --></select>
+                <small class="error-msg"></small>
+              </div>
+              <div class="field">
+                <label for="bDate">Visit Date *</label>
+                <input type="date" id="bDate" name="date" />
+                <small class="error-msg"></small>
+              </div>
+              <div class="field">
+                <label for="bSlot">Time Slot *</label>
+                <select id="bSlot" name="slot">
+                  <option value="">-- Choose a slot --</option>
+                  <option>10:00 AM</option>
+                  <option>11:00 AM</option>
+                  <option>12:30 PM</option>
+                  <option>02:00 PM</option>
+                  <option>04:00 PM</option>
+                  <option>06:00 PM</option>
+                </select>
+                <small class="error-msg"></small>
+              </div>
+              <div class="field full">
+                <label for="bBudget">Indicative Budget: <output id="bBudgetOut">₹3.50 Cr</output></label>
+                <input type="range" id="bBudget" name="budget" min="2" max="7" step="0.25" value="3.5" />
+                <div class="range-scale"><span>₹2 Cr</span><span>₹4.5 Cr</span><span>₹7 Cr</span></div>
+              </div>
+              <div class="field full">
+                <span class="group-label">Purpose of Purchase *</span>
+                <div class="radio-group">
+                  <label><input type="radio" name="purpose" value="Self-use" /> Self-use Family Home</label>
+                  <label><input type="radio" name="purpose" value="Investment" /> Investment</label>
+                </div>
+                <small class="error-msg"></small>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>03. Add-ons</legend>
+            <label class="check"><input type="checkbox" name="chauffeur" id="bChauffeur" /> Complimentary chauffeur pick-up from Delhi NCR</label>
+            <div class="field">
+              <label class="check"><input type="checkbox" name="terms" id="bTerms" /> I agree to be contacted by ANZEN about this visit *</label>
+              <small class="error-msg"></small>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="btn btn-gold submit-btn">Confirm Private Site Visit →</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ BOOKING STATUS TRACKER ============ -->
+    <section class="track" id="track">
+      <div class="container">
+        <p class="eyebrow">Status Tracking</p>
+        <h2 class="section-title">Track Your <em class="accent">Site Visit</em></h2>
+        <p class="section-lead">Enter the Booking ID you received (e.g. BK-1001) to see its progress.</p>
+        <form class="track-form" id="trackForm" novalidate>
+          <label for="trackId" class="sr-only">Booking ID</label>
+          <input type="text" id="trackId" placeholder="BK-1001" />
+          <button type="submit" class="btn btn-gold">Track →</button>
+        </form>
+        <div id="trackResult" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="index.html" class="brand">
+          <span class="brand-mark">安全</span>
+          <span><span class="brand-name">ANZEN</span><br /><span class="brand-sub">Sector 80 • Greater Faridabad</span></span>
+        </a>
+        <p class="footer-about">An Indo-Japanese gated plotted township where every corner feels like a safe space.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">01. Home</a></li>
+          <li><a href="properties.html">02. Properties &amp; Plans</a></li>
+          <li><a href="contact.html">03. Location &amp; Visit</a></li>
+          <li><a href="dashboard.html">04. Dashboard</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit Us</h4>
+        <ul>
+          <li>Sales Pavilion, Sector 80, Greater Faridabad, Haryana</li>
+          <li>+91 12345 67890 (demo)</li>
+          <li>09:30 AM – 07:30 PM, all 7 days</li>
+        </ul>
+      </div>
+      <div>
+        <h4>CSE326 Team</h4>
+        <div class="team-box">
+          <span><strong>Akshita</strong> — HTML<br /><code>*.html</code></span>
+          <span><strong>Pranjal</strong> — CSS<br /><code>css/*.css</code></span>
+          <span><strong>Jyotsnarini</strong> — JavaScript<br /><code>js/*.js</code></span>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year">2026</span> ANZEN 安全 — Where Every Corner Feels Like a Safe Space</span>
+      <span class="demo-note">Student project (CSE326, LPU). All names, prices &amp; details are fictional.</span>
+    </div>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!-- =========================================================
+     ANZEN 安全 — dashboard.html (Sales Dashboard)
+     HTML by: Akshita
+     Sections: Summary cards → Status & block charts →
+     Add / Edit property form → Listings table (status update,
+     edit, delete) → Site-visit bookings table (status tracking)
+     ========================================================= -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ANZEN sales dashboard — manage listings, update status and track site-visit bookings." />
+  <title>Dashboard | ANZEN 安全</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Noto+Serif+JP:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER / NAVIGATION ============ -->
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a href="index.html" class="brand" aria-label="ANZEN home">
+        <span class="brand-mark">安全</span>
+        <span>
+          <span class="brand-name">ANZEN</span><br />
+          <span class="brand-sub">Sector 80 • Greater Faridabad</span>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="num">01.</span>Home</a></li>
+        <li><a href="properties.html"><span class="num">02.</span>Properties &amp; Plans</a></li>
+        <li><a href="contact.html"><span class="num">03.</span>Location &amp; Visit</a></li>
+        <li><a href="dashboard.html"><span class="num">04.</span>Dashboard</a></li>
+        <li><a href="contact.html#book" class="btn btn-gold btn-sm nav-cta">Book Site Visit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="dash">
+    <!-- ============ TITLE ============ -->
+    <section class="dash-head">
+      <div class="container dash-head-inner">
+        <div>
+          <p class="eyebrow">04 • Sales Dashboard</p>
+          <h1 class="section-title">Inventory &amp; <em class="accent">Visit Tracker</em></h1>
+          <p class="section-lead">Add or update listings, change their status and follow every site-visit request — all saved in your browser.</p>
+        </div>
+        <button class="btn btn-outline btn-sm" id="resetData" type="button">↺ Reset Demo Data</button>
+      </div>
+    </section>
+
+    <!-- ============ SUMMARY CARDS (filled by JavaScript) ============ -->
+    <section class="dash-section">
+      <div class="container">
+        <div class="kpi-grid" id="kpiGrid"></div>
+
+        <div class="chart-grid">
+          <article class="panel-card">
+            <h2>Inventory Status</h2>
+            <div class="stack-bar" id="statusBar" aria-label="Share of available, booked and sold properties"></div>
+            <ul class="legend" id="statusLegend"></ul>
+          </article>
+          <article class="panel-card">
+            <h2>Listings by Block</h2>
+            <div class="block-bars" id="blockBars"></div>
+          </article>
+          <article class="panel-card">
+            <h2>Site-Visit Pipeline</h2>
+            <div class="pipeline" id="pipeline"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ADD / EDIT PROPERTY FORM ============ -->
+    <section class="dash-section" id="manage">
+      <div class="container manage-grid">
+        <form class="panel-card prop-form" id="propertyForm" novalidate>
+          <h2 id="formTitle">Add New Property</h2>
+          <div class="form-alert" id="formAlert" role="alert"></div>
+          <input type="hidden" id="pId" name="id" />
+
+          <div class="form-grid">
+            <div class="field full">
+              <label for="pTitle">Property Name *</label>
+              <input type="text" id="pTitle" name="title" placeholder="e.g. Nara Lake Villa" />
+              <small class="error-msg"></small>
+            </div>
+            <div class="field">
+              <label for="pType">Type *</label>
+              <select id="pType" name="type">
+                <option value="">-- Select --</option>
+                <option>Plot</option>
+                <option>Villa</option>
+                <option>Estate</option>
+              </select>
+              <small class="error-msg"></small>
+            </div>
+            <div class="field">
+              <label for="pBlock">Block *</label>
+              <select id="pBlock" name="block">
+                <option value="">-- Select --</option>
+                <option>A</option><option>B</option><option>C</option><option>D</option>
+              </select>
+              <small class="error-msg"></small>
+            </div>
+            <div class="field">
+              <label for="pSize">Plot Size (Sq. Yds.) *</label>
+              <input type="number" id="pSize" name="size" min="100" max="1000" placeholder="180 – 1000" />
+              <small class="error-msg"></small>
+            </div>
+            <div class="field">
+              <label for="pBhk">BHK (0 for open plot)</label>
+              <input type="number" id="pBhk" name="bhk" min="0" max="8" value="0" />
+              <small class="error-msg"></small>
+            </div>
+            <div class="field">
+              <label for="pPrice">Price (₹ Crore) *</label>
+              <input type="number" id="pPrice" name="price" step="0.01" min="0.5" max="50" placeholder="e.g. 3.25" />
+              <small class="error-msg"></small>
+            </div>
+            <div class="field">
+              <label for="pFacing">Facing *</label>
+              <select id="pFacing" name="facing">
+                <option value="">-- Select --</option>
+                <option>East</option><option>West</option><option>North</option><option>South</option>
+                <option>North-East</option><option>North-West</option><option>South-East</option><option>South-West</option>
+              </select>
+              <small class="error-msg"></small>
+            </div>
+            <div class="field">
+              <label for="pStatus">Status *</label>
+              <select id="pStatus" name="status">
+                <option>Available</option><option>Booked</option><option>Sold</option>
+              </select>
+              <small class="error-msg"></small>
+            </div>
+            <div class="field">
+              <label for="pImg">Image URL (optional)</label>
+              <input type="url" id="pImg" name="img" placeholder="https://…" />
+              <small class="error-msg"></small>
+            </div>
+            <div class="field full">
+              <label for="pDesc">Short Description *</label>
+              <textarea id="pDesc" name="desc" rows="3" maxlength="200" placeholder="What makes this home special? (10–200 characters)"></textarea>
+              <small class="error-msg"></small>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-gold" id="saveBtn">+ Add Property</button>
+            <button type="button" class="btn btn-outline" id="cancelEdit" hidden>Cancel Edit</button>
+          </div>
+        </form>
+
+        <!-- ============ LISTINGS TABLE ============ -->
+        <article class="panel-card table-card">
+          <div class="table-head">
+            <h2>All Listings</h2>
+            <div class="table-tools">
+              <input type="search" id="tableSearch" placeholder="Search listings…" aria-label="Search listings" />
+              <select id="tableStatus" aria-label="Filter by status">
+                <option value="">All Status</option>
+                <option>Available</option><option>Booked</option><option>Sold</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr><th>ID</th><th>Property</th><th>Block</th><th>Size</th><th>Price</th><th>Status</th><th>Actions</th></tr>
+              </thead>
+              <tbody id="listingRows"></tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ BOOKINGS TABLE ============ -->
+    <section class="dash-section" id="bookings">
+      <div class="container">
+        <article class="panel-card table-card">
+          <div class="table-head">
+            <h2>Site-Visit Requests</h2>
+            <div class="table-tools">
+              <select id="bookingFilter" aria-label="Filter bookings by status">
+                <option value="">All Requests</option>
+                <option>New</option><option>Contacted</option><option>Visit Done</option><option>Closed</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr><th>Booking ID</th><th>Visitor</th><th>Contact</th><th>Property</th><th>Visit</th><th>Progress</th><th>Status</th><th></th></tr>
+              </thead>
+              <tbody id="bookingRows"></tbody>
+            </table>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <span>© <span id="year">2026</span> ANZEN 安全 — Where Every Corner Feels Like a Safe Space</span>
+      <span>CSE326 Team: Akshita (HTML) • Pranjal (CSS) • Jyotsnarini (JavaScript)</span>
+      <span class="demo-note">Student project — all data is fictional and stored only in this browser.</span>
+    </div>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
